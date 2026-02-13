@@ -1,1 +1,8 @@
-univ-2.pdf
+_site/
+.jekyll-cache/
+.sass-cache/
+.DS_Store
+Gemfile.lock
+*.swp
+*.swo
+node_modules/

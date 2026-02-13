@@ -35,7 +35,7 @@ To overcome the phase and timing inaccuracies, we adopted the **Quadrature Sampl
 
 
 
-![Amplitude Detection Logic](/images/amplitude_logic.jpg)
+![Amplitude Detection Logic](/assets/images/amplitude_logic.jpg)
 *Firmware logic for quadrature-based amplitude detection.*
 
 This allows the extraction of both **real (I)** and **imaginary (Q)** components of the signal:
@@ -54,7 +54,7 @@ A = \sqrt{I^2 + Q^2}
 This technique is inherently less sensitive to phase shifts or harmonics since it effectively reconstructs the fundamental sinusoidal component through vector addition in the I–Q plane.
 
 
-![Python Simulation](/images/python_simulation.jpg)
+![Python Simulation](/assets/images/python_simulation.jpg)
 *Python simulation verifying amplitude reconstruction accuracy.*
 
 ---
@@ -89,10 +89,10 @@ To improve accuracy:
 2. **Multiple Tone Test** – Ramp input 1 Vpp (sampling focused on 100 Hz fundamental)
    → Measured output: **580 mV** (variation observed due to nearby frequency components)
 
-![Single Tone Output](/images/single_tone_output.jpg)
+![Single Tone Output](/assets/images/single_tone_output.jpg)
 *Output for a clean single-tone input showing accurate amplitude detection.*
 
-![Multiple Tone Output](/images/multiple_tone_output.jpg)
+![Multiple Tone Output](/assets/images/multiple_tone_output.jpg)
 *Amplitude detection in multi-tone case showing reduced precision.*
 
 ---
