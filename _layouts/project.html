@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<article class="project-article">
+    <header class="project-header">
+        <a href="{{ '/projects/' | relative_url }}" class="back-link">← Back to Projects</a>
+        <div class="project-meta">
+            {% for tag in page.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        <h1 class="project-title">{{ page.title }}</h1>
+        {% if page.description %}
+        <p class="project-description">{{ page.description }}</p>
+        {% endif %}
+        <div class="project-info">
+            <span class="project-date">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                {{ page.date | date: "%B %Y" }}
+            </span>
+            {% if page.guide %}
+            <span class="project-guide">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                {{ page.guide }}
+            </span>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="project-content prose">
+        {{ content }}
+    </div>
+</article>

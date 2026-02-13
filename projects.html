@@ -1,0 +1,57 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+<section class="section projects-page">
+    <div class="section-header">
+        <h1 class="section-title"><span class="section-hash">#</span> All Projects</h1>
+    </div>
+
+    <!-- Filter buttons -->
+    <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        {% assign all_tags = "" | split: "" %}
+        {% for project in site.projects %}
+        {% for tag in project.tags %}
+        {% unless all_tags contains tag %}
+        {% assign all_tags = all_tags | push: tag %}
+        {% endunless %}
+        {% endfor %}
+        {% endfor %}
+        {% for tag in all_tags %}
+        <button class="filter-btn" data-filter="{{ tag | downcase }}">{{ tag }}</button>
+        {% endfor %}
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+        {% assign sorted_projects = site.projects | sort: "date" | reverse %}
+        {% for project in sorted_projects %}
+        <a href="{{ project.url | relative_url }}" class="project-card{% if project.thumbnail %} has-thumb{% endif %}"
+            data-tags="{{ project.tags | join: ',' | downcase }}">
+            {% if project.thumbnail %}
+            <div class="card-thumb">
+                <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}" loading="lazy">
+            </div>
+            {% endif %}
+            <div class="card-header">
+                {% unless project.thumbnail %}<span class="card-icon">{{ project.icon | default: "⚡" }}</span>{%
+                endunless %}
+                <div class="card-tags">
+                    {% for tag in project.tags limit: 2 %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <h3 class="card-title">{{ project.title }}</h3>
+            <p class="card-desc">{{ project.description | default: project.excerpt | strip_html | truncatewords: 25 }}
+            </p>
+            <div class="card-footer">
+                <span class="card-date">{{ project.date | date: "%b %Y" }}</span>
+                <span class="card-arrow">→</span>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>

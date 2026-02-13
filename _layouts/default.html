@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | truncatewords: 50 }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <!-- MathJax for LaTeX -->
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <!-- Animated circuit background -->
+  <div class="circuit-bg" aria-hidden="true">
+    <canvas id="circuitCanvas"></canvas>
+  </div>
+
+  <nav class="navbar">
+    <a href="{{ '/' | relative_url }}" class="nav-logo">
+      <span class="logo-bracket">&lt;</span><span class="logo-text">SK</span><span class="logo-bracket">/&gt;</span>
+    </a>
+    <div class="nav-links">
+      <a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' %}active{% endif %}">Home</a>
+      <a href="{{ '/projects/' | relative_url }}"
+        class="nav-link {% if page.url contains '/projects' %}active{% endif %}">Projects</a>
+      <a href="{{ '/blog/' | relative_url }}"
+        class="nav-link {% if page.url contains '/blog' %}active{% endif %}">Blog</a>
+      <a href="{{ '/about/' | relative_url }}"
+        class="nav-link {% if page.url == '/about/' %}active{% endif %}">About</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main class="main-content">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="footer-text">
+        <span class="terminal-prompt">$</span> Built with curiosity & solder
+      </p>
+      <div class="footer-links">
+        <a href="https://github.com/" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+        <a href="mailto:" class="footer-link">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+
+</html>
