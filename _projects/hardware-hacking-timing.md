@@ -4,7 +4,7 @@ description: "Exploiting instruction-level timing delays to reveal passwords thr
 date: 2025-03-15
 tags: [hardware-security, side-channel]
 icon: "⏱️"
-featured: true
+featured: false
 guide: "Electronics and Robotics Club"
 ---
 
