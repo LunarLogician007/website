@@ -3,6 +3,11 @@ description: "VLSI Design • FPGA/ASIC • Embedded Robotics"
 baseurl: "/website"
 url: ""
 
+# Contact Information
+github_username: "LunarLogician007"
+linkedin_url: "https://www.linkedin.com/in/saravan-kumar-boddeda-0351b1294"
+email: "saravan.kumar@iitb.ac.in"
+
 # Build settings
 markdown: kramdown
 highlighter: rouge
